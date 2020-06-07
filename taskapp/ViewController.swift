@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var seach: UISearchBar!
     // Realmインスタンスを取得する
     let realm = try! Realm()  // ←追加
     
@@ -45,6 +46,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let dateString:String = formatter.string(from: task.date)
         cell.detailTextLabel?.text = dateString
+        
+        
         return cell
     }
     
@@ -87,6 +90,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
     }
+    
+ //   @IBOutlet var categolyText: [UISearchBar]!
+    
+    
     // 入力画面から戻ってきた時に TableView を更新させる
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
