@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var searchText: UITextField!
     //var searchText: String = ""
     
+    
+    
     // Realmインスタンスを取得する
     let realm = try! Realm()  // ←追加
     
@@ -30,7 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-    
+        
     }
     //MARK:関数
     // データの数（＝セルの数）を返すメソッド
@@ -76,22 +78,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     //MARK:検索
-
-    @IBAction func searchText(_ sender: UITextField, forEvent event: UIEvent) {
-        var st:String = ""
-        print(st)
-        print(taskArray)
-        st = searchText.text!
-        print(st)
-        let predicate = NSPredicate(format: "category = %@", st)
-        //tanDogs = realm.objects(Dog).filter(predicate)
-        
-        taskArray = realm.objects(Task.self).filter(predicate)
-        //print(results)
-        print(taskArray)
-        tableView.reloadData()
     
-}
+    @IBAction func searchText(_ sender: Any, forEvent event: UIEvent) {
+        
+        var st:String = ""
+//        print(st)
+//        print(taskArray)
+        st = searchText.text!
+//        print(st)
+        let predicate = NSPredicate(format: "category = %@", st)
+//        print(predicate)
+        taskArray = realm.objects(Task.self).filter(predicate)
+//        print(predicate)
+//        print(taskArray)
+        tableView.reloadData()
+        
+    }
+    
     
     //MARK:segue で画面遷移する時に呼ばれる
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){

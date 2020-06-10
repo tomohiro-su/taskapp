@@ -15,8 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksh-lj-9O3">
+                                <rect key="frame" x="20" y="103" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="searchText:forEvent:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="5bQ-i4-fD3"/>
+                                </connections>
+                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S69-0e-E2w">
-                                <rect key="frame" x="0.0" y="171" width="414" height="691"/>
+                                <rect key="frame" x="0.0" y="232" width="414" height="614"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Oeh-MQ-UmN" detailTextLabel="47s-s7-9VI" style="IBUITableViewCellStyleSubtitle" id="Mwh-rw-kv3">
@@ -45,22 +54,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksh-lj-9O3">
-                                <rect key="frame" x="20" y="103" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="searchText:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="lP8-uz-iJh"/>
-                                    <action selector="searchText:forEvent:" destination="BYZ-38-t0r" eventType="editingChanged" id="JEy-0L-da5"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="S69-0e-E2w" secondAttribute="bottom" id="JyS-S9-27h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S69-0e-E2w" secondAttribute="trailing" id="Tr2-HF-ept"/>
-                            <constraint firstItem="S69-0e-E2w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="vyZ-ga-05G"/>
+                            <constraint firstItem="S69-0e-E2w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="126" id="vyZ-ga-05G"/>
                             <constraint firstItem="S69-0e-E2w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="x4R-ze-6e8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -73,7 +72,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchText" destination="ksh-lj-9O3" id="OJN-gS-6Q0"/>
+                        <outlet property="searchText" destination="ksh-lj-9O3" id="Y5S-Hi-yYI"/>
                         <outlet property="tableView" destination="S69-0e-E2w" id="6qR-bj-jPw"/>
                         <segue destination="bIf-QJ-zfi" kind="show" identifier="cellSegue" id="JhZ-Or-eWL"/>
                     </connections>
