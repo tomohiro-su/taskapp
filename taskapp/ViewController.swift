@@ -78,10 +78,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK:検索
 
     @IBAction func searchText(_ sender: UITextField, forEvent event: UIEvent) {
-//        var st:String = ""
-//        st = searchText.text!
-        let results = realm.objects(Task.self).filter("category == cateTextField")
-        print(results)
+        var st:String = ""
+        print(st)
+        print(taskArray)
+        st = searchText.text!
+        print(st)
+        let predicate = NSPredicate(format: "category = %@", st)
+        //tanDogs = realm.objects(Dog).filter(predicate)
+        
+        taskArray = realm.objects(Task.self).filter(predicate)
+        //print(results)
+        print(taskArray)
+        tableView.reloadData()
     
 }
     
