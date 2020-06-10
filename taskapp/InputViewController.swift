@@ -15,11 +15,14 @@ class InputViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var cateTextField: UITextField! //カテゴリーを追加
+
     
+    @IBOutlet weak var cateTextField: UITextField! //カテゴリーを追加
+
     let realm = try! Realm()    // 追加する
     var task: Task!
     
+    //MARK:viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,7 +92,7 @@ class InputViewController: UIViewController {
             }
         }
     }
-    
+       
     @objc func dismissKeyboard(){
         // キーボードを閉じる
         view.endEditing(true)

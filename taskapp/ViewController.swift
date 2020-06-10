@@ -9,11 +9,13 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate  {
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var seach: UISearchBar!
+    @IBOutlet weak var searchText: UITextField!
+    //var searchText: String = ""
+    
     // Realmインスタンスを取得する
     let realm = try! Realm()  // ←追加
     
@@ -22,13 +24,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // 以降内容をアップデートするとリスト内は自動的に更新される。
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)  // ←追加
     
-    
+    //MARK:viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+    
     }
+    //MARK:関数
     // データの数（＝セルの数）を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskArray.count
@@ -71,7 +75,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
-    // segue で画面遷移する時に呼ばれる
+    //MARK:検索
+
+    @IBAction func searchText(_ sender: UITextField, forEvent event: UIEvent) {
+//        var st:String = ""
+//        st = searchText.text!
+        let results = realm.objects(Task.self).filter("category == cateTextField")
+        print(results)
+    
+}
+    
+    //MARK:segue で画面遷移する時に呼ばれる
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let inputViewController:InputViewController = segue.destination as! InputViewController
         
@@ -91,10 +105,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
- //   @IBOutlet var categolyText: [UISearchBar]!
     
-    
-    // 入力画面から戻ってきた時に TableView を更新させる
+    // MARK:入力画面から戻ってきた時に TableView を更新させる
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
