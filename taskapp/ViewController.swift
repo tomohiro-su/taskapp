@@ -24,7 +24,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // DB内のタスクが格納されるリスト。
     // 日付の近い順でソート：昇順
     // 以降内容をアップデートするとリスト内は自動的に更新される。
-   
+    
+    var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)  // ←追加
+    
+    
     //MARK:viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,40 +80,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     //MARK:検索
-        @IBAction func searchText(_ sender: UITextField) {
-      
-    
+    @IBAction func searchText(_ sender: UITextField) {
         var st:String = ""
-//        print(st)
-//        print(taskArray)
+        
         st = searchText.text!
-//        print(st)
         let predicate = NSPredicate(format: "category = %@", st)
-//        print(predicate)
         taskArray = realm.objects(Task.self).filter(predicate)
-//        print(predicate)
-//        print(taskArray)
         tableView.reloadData()
         
     }
-    
-    //MARK:キャンセル
-    
-    @IBAction func cancelText(_ sender: Any) {
-        searchText.text = ""
-
-           
         
-        //        let  st: String = ""
-//   let predicate = NSPredicate(format: "id != %@", st)
-//
-//    taskArray = realm.objects(Task.self).filter(predicate)
-//    tableView.reloadData()
-//
-    }
-    
-    
-    
     //MARK:segue で画面遷移する時に呼ばれる
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let inputViewController:InputViewController = segue.destination as! InputViewController
