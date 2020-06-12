@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="検索" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksh-lj-9O3">
-                                <rect key="frame" x="0.0" y="88" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="88" width="318" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="pfM-1e-MtF"/>
                                 </constraints>
@@ -26,8 +26,19 @@
                                     <action selector="searchText:" destination="BYZ-38-t0r" eventType="editingChanged" id="bgD-Wk-4L6"/>
                                 </connections>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S69-0e-E2w">
-                                <rect key="frame" x="0.0" y="128" width="414" height="724"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3l-gG-ArG">
+                                <rect key="frame" x="318" y="88" width="96" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="9Dt-hK-hnw"/>
+                                    <constraint firstAttribute="height" constant="40" id="phQ-tp-kPB"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル"/>
+                                <connections>
+                                    <action selector="cancelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aLy-eY-Z2t"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S69-0e-E2w">
+                                <rect key="frame" x="0.0" y="122" width="414" height="740"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Oeh-MQ-UmN" detailTextLabel="47s-s7-9VI" style="IBUITableViewCellStyleSubtitle" id="Mwh-rw-kv3">
@@ -59,14 +70,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ksh-lj-9O3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JMy-AZ-YcK"/>
-                            <constraint firstItem="S69-0e-E2w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JRD-rV-bJS"/>
-                            <constraint firstItem="ksh-lj-9O3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LkL-Zf-3pm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S69-0e-E2w" secondAttribute="trailing" id="RiJ-Ti-xYa"/>
-                            <constraint firstItem="ksh-lj-9O3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WKj-N2-byD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ksh-lj-9O3" secondAttribute="trailing" id="ZRZ-eb-b8P"/>
-                            <constraint firstItem="S69-0e-E2w" firstAttribute="top" secondItem="ksh-lj-9O3" secondAttribute="bottom" id="ifB-ss-OVZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="S69-0e-E2w" secondAttribute="bottom" constant="10" id="yGD-iK-N7U"/>
+                            <constraint firstItem="S69-0e-E2w" firstAttribute="leading" secondItem="ksh-lj-9O3" secondAttribute="leading" id="G6P-Fx-WD4"/>
+                            <constraint firstItem="S69-0e-E2w" firstAttribute="top" secondItem="f3l-gG-ArG" secondAttribute="bottom" id="IrU-vf-pLH"/>
+                            <constraint firstItem="S69-0e-E2w" firstAttribute="top" secondItem="ksh-lj-9O3" secondAttribute="bottom" id="PKP-9R-FV7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="S69-0e-E2w" secondAttribute="bottom" id="YHj-Qt-4dC"/>
+                            <constraint firstItem="f3l-gG-ArG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gYI-mS-aJ0"/>
+                            <constraint firstItem="f3l-gG-ArG" firstAttribute="leading" secondItem="ksh-lj-9O3" secondAttribute="trailing" id="hYC-dd-Zgi"/>
+                            <constraint firstItem="ksh-lj-9O3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oM5-Kg-DX9"/>
+                            <constraint firstItem="f3l-gG-ArG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sPs-hi-0nb"/>
+                            <constraint firstItem="S69-0e-E2w" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xl4-a1-hGO"/>
+                            <constraint firstItem="ksh-lj-9O3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zMp-oR-s20"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -85,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040.5797101449275" y="136.60714285714286"/>
+            <point key="canvasLocation" x="1039.1304347826087" y="135.9375"/>
         </scene>
         <!--Input View Controller-->
         <scene sceneID="7rd-Ok-iZY">

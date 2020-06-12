@@ -109,7 +109,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
     }
-    
+    //MARK:キャンセル
+    @IBAction func cancelText(_ sender: Any) {
+        searchText.text = ""
+        taskArray = realm.objects(Task.self)
+        tableView.reloadData()
+        
+    }
     
     // MARK:入力画面から戻ってきた時に TableView を更新させる
     override func viewWillAppear(_ animated: Bool) {
